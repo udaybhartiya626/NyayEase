@@ -7,7 +7,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isAuthenticated, user, logout, loading } = useAuth();
-  
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -27,45 +27,43 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
-              <img 
-                src="/logo.svg" 
-                alt="NyayEase Logo" 
+              <img
+                src="/logo.svg"
+                alt="NyayEase Logo"
                 className="h-8 w-8 rounded-full object-cover bg-white"
               />
-              <span className="text-white text-xl font-extralight">NyayEase</span>
+              <span className="text-white text-xl font-extrabold">NyayEase</span>
             </Link>
           </div>
-          
+
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link 
-              to="/" 
-              className={`text-white px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === '/' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-              }`}
+            <Link
+              to="/"
+              className={`text-white px-3 py-2 rounded-md text-sm font-medium ${location.pathname === '/' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                }`}
             >
               Home
             </Link>
-            
-            <Link 
-              to="/about" 
-              className={`text-white px-3 py-2 rounded-md text-sm font-medium ${
-                location.pathname === '/about' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-              }`}
+
+            <Link
+              to="/about"
+              className={`text-white px-3 py-2 rounded-md text-sm font-medium ${location.pathname === '/about' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                }`}
             >
               About
             </Link>
-            
+
             {!isAuthenticated ? (
               <>
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Login
                 </Link>
-                <Link 
-                  to="/register" 
+                <Link
+                  to="/register"
                   className="bg-white text-indigo-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Register
@@ -73,15 +71,14 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link 
-                  to="/dashboard" 
-                  className={`text-white px-3 py-2 rounded-md text-sm font-medium ${
-                    location.pathname.startsWith('/dashboard') ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-                  }`}
+                <Link
+                  to="/dashboard"
+                  className={`text-white px-3 py-2 rounded-md text-sm font-medium ${location.pathname.startsWith('/dashboard') ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                    }`}
                 >
                   Dashboard
                 </Link>
-                <button 
+                <button
                   onClick={handleLogout}
                   className="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
                   disabled={loading}
@@ -96,7 +93,7 @@ const Navbar = () => {
               </>
             )}
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center">
             <button
@@ -125,34 +122,32 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link 
-              to="/" 
-              className={`block text-white px-3 py-2 rounded-md text-base font-medium ${
-                location.pathname === '/' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-              }`}
+            <Link
+              to="/"
+              className={`block text-white px-3 py-2 rounded-md text-base font-medium ${location.pathname === '/' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                }`}
             >
               Home
             </Link>
-            
-            <Link 
-              to="/about" 
-              className={`block text-white px-3 py-2 rounded-md text-base font-medium ${
-                location.pathname === '/about' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-              }`}
+
+            <Link
+              to="/about"
+              className={`block text-white px-3 py-2 rounded-md text-base font-medium ${location.pathname === '/about' ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                }`}
             >
               About
             </Link>
-            
+
             {!isAuthenticated ? (
               <>
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="block text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                 >
                   Login
                 </Link>
-                <Link 
-                  to="/register" 
+                <Link
+                  to="/register"
                   className="block bg-white text-indigo-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
                 >
                   Register
@@ -160,15 +155,14 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link 
-                  to="/dashboard" 
-                  className={`block text-white px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname.startsWith('/dashboard') ? 'bg-indigo-800' : 'hover:bg-indigo-600'
-                  }`}
+                <Link
+                  to="/dashboard"
+                  className={`block text-white px-3 py-2 rounded-md text-base font-medium ${location.pathname.startsWith('/dashboard') ? 'bg-indigo-800' : 'hover:bg-indigo-600'
+                    }`}
                 >
                   Dashboard
                 </Link>
-                <button 
+                <button
                   onClick={handleLogout}
                   className="block text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-base font-medium w-full text-left"
                   disabled={loading}
