@@ -54,7 +54,7 @@ process.on('SIGINT', () => {
 
 const app = express();
 const options = {
-  origin: 'http://localhost:5173',
+  origin: 'https://nyayease.vercel.app/',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -95,7 +95,7 @@ app.use((req, res) => {
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
+  res.status(500).json({
     message: 'Internal server error',
     error: process.env.NODE_ENV === 'production' ? {} : err
   });
